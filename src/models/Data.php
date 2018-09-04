@@ -28,7 +28,12 @@ class Data extends Model
     /**
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $mood,
+        $period,
+        $energy,
+        $sleep,
+        $diet,
+        $freetext;
 
     // Public Methods
     // =========================================================================
@@ -40,7 +45,7 @@ class Data extends Model
     {
         return [
             [['mood','period','energy','sleep'], 'number'],
-            ['diet', 'mixed']
+            [['diet','freetext'], 'mixed']
         ];
     }
 }

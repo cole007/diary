@@ -28,7 +28,9 @@ class Settings extends Model
     /**
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $twilioNumber;
+    public $twilioSid;
+    public $twilioToken;
 
     // Public Methods
     // =========================================================================
@@ -39,8 +41,7 @@ class Settings extends Model
     public function rules()
     {
         return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            [['twilioNumber','twilioSid','twilioToken'], 'string']
         ];
     }
 }

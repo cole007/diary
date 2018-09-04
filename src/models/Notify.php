@@ -28,7 +28,10 @@ class Notify extends Model
     /**
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $to, 
+        $status, 
+        $token, 
+        $message;
 
     // Public Methods
     // =========================================================================
@@ -39,7 +42,7 @@ class Notify extends Model
     public function rules()
     {
         return [
-            [['email','status','token'], 'string'],
+            [['to','status','token'], 'string'],
             ['message', 'mixed']
         ];
     }

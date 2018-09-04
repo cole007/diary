@@ -14,6 +14,8 @@ use cole007\diary\Diary;
 
 use Craft;
 use craft\base\Model;
+use cole007\diary\records\User AS UserRecord;
+use craft\validators\UniqueValidator;
 
 /**
  * @author    cole007
@@ -28,7 +30,11 @@ class User extends Model
     /**
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $email,
+        $name,
+        $sms,
+        $status,
+        $password;
 
     // Public Methods
     // =========================================================================
@@ -39,10 +45,8 @@ class User extends Model
     public function rules()
     {
         return [
-            ['email', 'email'],
-            ['name', 'string'],
-            ['password', 'string'],
-            ['password', 'required']
+            [['email','name','sms','password','status'], 'string'],
+            [['email','sms','password'], 'required']
         ];
     }
 }

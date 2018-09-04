@@ -18,9 +18,23 @@
 {% do view.registerAssetBundle("cole007\\diary\\assetbundles\\diary\\DiaryAsset") %}
 
 {{ forms.textField({
-    label: 'Some Field',
+    label: 'Twilio Number',
     instructions: 'Enter some setting here.',
-    id: 'someAttribute',
-    name: 'someAttribute',
-    value: settings['someAttribute']})
+    id: 'twilioNumber',
+    name: 'twilioNumber',
+    value: settings['twilioNumber']})
+}}
+{{ forms.textField({
+    label: 'Twilio SID',
+    instructions: 'Enter some setting here.',
+    id: 'twilioSid',
+    name: 'twilioSid',
+    value: settings['twilioSid']})
+}}
+{{ forms.textField({
+    label: 'Twilio Token',
+    instructions: 'Enter some setting here.',
+    id: 'twilioToken',
+    name: 'twilioToken',
+    value: settings['twilioToken']})
 }}

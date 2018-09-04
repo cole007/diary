@@ -11,6 +11,8 @@
 namespace cole007\diary\services;
 
 use cole007\diary\Diary;
+use cole007\diary\models\User AS UserModel;
+use cole007\diary\records\User AS UserRecord;
 
 use Craft;
 use craft\base\Component;
@@ -28,13 +30,24 @@ class User extends Component
     /*
      * @return mixed
      */
-    public function exampleService()
+    public function saveUser( UserModel $user )
     {
-        $result = 'something';
-        // Check our Plugin's settings for `someAttribute`
-        if (Diary::$plugin->getSettings()->someAttribute) {
+        $site = Craft::$app->getSites()->getCurrentSite();
+        
+        $userRecord = new UserRecord;
+        $userRecord->siteId = $site->id;
+        foreach($user AS $property => $value) {
+            // echo $property;
+            $userRecord->$property = $value;
         }
-
-        return $result;
+        $userRecord->save();
+        $email = $this->sendEmail( $userRecord );
+        // send email ??
+        return $email;
+    }
+    public function sendEmail( UserRecord $user )
+    {
+        // Craft::dd( $user );
+        return true;
     }
 }

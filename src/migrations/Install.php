@@ -84,7 +84,9 @@ class Install extends Migration
                     'uid' => $this->uid(),
                     'siteId' => $this->integer()->notNull(),
                     'email' => $this->string(255)->notNull(),
+                    'sms' => $this->string(255)->notNull(),
                     'name' => $this->string(255)->notNull(),
+                    'status' => $this->string(255)->defaultValue('draft'),
                     'password' => $this->string(255)->notNull(),
                 ]
             );
@@ -106,6 +108,7 @@ class Install extends Migration
                     'energy' => $this->integer(),
                     'sleep' => $this->integer(),
                     'diet' => $this->text(),
+                    'freetext' => $this->text(),
                 ]
             );
         }
@@ -121,7 +124,7 @@ class Install extends Migration
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
                     'siteId' => $this->integer()->notNull(),
-                    'email' => $this->string(255)->notNull()->defaultValue(''),
+                    'to' => $this->string(255)->notNull()->defaultValue(''),
                     'status' => $this->string(255)->notNull()->defaultValue(''),
                     'token' => $this->string(255)->notNull()->defaultValue(''),
                     'message' => $this->text()->notNull()->defaultValue(''),
@@ -137,16 +140,16 @@ class Install extends Migration
      */
     protected function createIndexes()
     {
-        $this->createIndex(
-            $this->db->getIndexName(
-                '{{%diary_user}}',
-                'some_field',
-                true
-            ),
-            '{{%diary_user}}',
-            'some_field',
-            true
-        );
+        // $this->createIndex(
+        //     $this->db->getIndexName(
+        //         '{{%diary_user}}',
+        //         'some_field',
+        //         true
+        //     ),
+        //     '{{%diary_user}}',
+        //     'some_field',
+        //     true
+        // );
         // Additional commands depending on the db driver
         switch ($this->driver) {
             case DbConfig::DRIVER_MYSQL:
@@ -155,16 +158,16 @@ class Install extends Migration
                 break;
         }
 
-        $this->createIndex(
-            $this->db->getIndexName(
-                '{{%diary_data}}',
-                'some_field',
-                true
-            ),
-            '{{%diary_data}}',
-            'some_field',
-            true
-        );
+        // $this->createIndex(
+        //     $this->db->getIndexName(
+        //         '{{%diary_data}}',
+        //         'some_field',
+        //         true
+        //     ),
+        //     '{{%diary_data}}',
+        //     'some_field',
+        //     true
+        // );
         // Additional commands depending on the db driver
         switch ($this->driver) {
             case DbConfig::DRIVER_MYSQL:
@@ -173,16 +176,16 @@ class Install extends Migration
                 break;
         }
 
-        $this->createIndex(
-            $this->db->getIndexName(
-                '{{%diary_notify}}',
-                'some_field',
-                true
-            ),
-            '{{%diary_notify}}',
-            'some_field',
-            true
-        );
+        // $this->createIndex(
+        //     $this->db->getIndexName(
+        //         '{{%diary_notify}}',
+        //         'some_field',
+        //         true
+        //     ),
+        //     '{{%diary_notify}}',
+        //     'some_field',
+        //     true
+        // );
         // Additional commands depending on the db driver
         switch ($this->driver) {
             case DbConfig::DRIVER_MYSQL:

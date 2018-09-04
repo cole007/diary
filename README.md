@@ -41,3 +41,4 @@ Some things to do, and ideas for potential features:
 * Release it
 
 Brought to you by [cole007](http://cole007.net)
+Icon 'diary' by ProSymbols from the Noun Project
