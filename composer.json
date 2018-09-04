@@ -1,0 +1,45 @@
+{
+    "name": "cole007/diary",
+    "description": "Plugin to monitor mood and diet",
+    "type": "craft-plugin",
+    "version": "0.0.1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "diary"
+    ],
+    "support": {
+        "docs": "https://github.com/cole007/diary/blob/master/README.md",
+        "issues": "https://github.com/cole007/diary/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cole007",
+            "homepage": "http://cole007.net"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "cole007\\diary\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Diary",
+        "handle": "diary",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "https://raw.githubusercontent.com/cole007/diary/master/CHANGELOG.md",
+        "components": {
+            "user": "cole007\\diary\\services\\User",
+            "data": "cole007\\diary\\services\\Data",
+            "notify": "cole007\\diary\\services\\Notify"
+        },
+        "class": "cole007\\diary\\Diary"
+    }
+}

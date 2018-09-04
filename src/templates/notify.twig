@@ -1,0 +1,53 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Diary plugin for Craft CMS 3.x
+ *
+ * Diary index.twig
+ *
+ * @author    cole007
+ * @copyright Copyright (c) 2018 cole007
+ * @link      http://cole007.net
+ * @package   Diary
+ * @since     0.0.1
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("cole007\\diary\\assetbundles\\diary\\DiaryAsset") %}
+{% do view.registerAssetBundle("cole007\\diary\\assetbundles\\notifycpsection\\NotifyCPSectionAsset") %}
+
+{% set docsUrl = "https://github.com/cole007/diary/blob/master/README.md" %}
+
+{% set title = "Diary | Notify" %}
+
+{% set pluginCpUrl = url('diary') %}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@cole007/diary/assetbundles/notifycpsection/dist', true) ~ '/img/Notify-icon.svg' %}
+
+{% set subnav = {
+    "users": { label: "Users"|t('diary'), url: url(pluginCpUrl ~ '/users') },
+    "data": { label: "Data"|t('diary'), url: url(pluginCpUrl ~ '/data') },
+    "notify": { label: "Notify"|t('diary'), url: url(pluginCpUrl ~ '/notify') },
+
+} %}
+{% set selectedSubnavItem = 'notify' %}
+
+{% set crumbs = [
+    { label: "Diary", url: url(pluginCpUrl) },
+    { label: "Notify"|t('diary'), url: url(pluginCpUrl ~ '/notify') },
+] %}
+
+{% set extraPageHeaderHtml %}
+    <div class="buttons">
+        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('diary') }}</a>
+    </div>
+{% endset %}
+
+{% set content %}
+    <h2>{{ "Notify CP Section body goes here"|t('diary') }}</h2>
+    <img src="{{ iconUrl }}" height="64" width="64" />
+    <p class="textline"></p>
+{% endset %}
