@@ -39,8 +39,10 @@ class User extends Model
     public function rules()
     {
         return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            ['email', 'email'],
+            ['name', 'string'],
+            ['password', 'string'],
+            ['password', 'required']
         ];
     }
 }

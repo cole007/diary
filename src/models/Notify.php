@@ -39,8 +39,8 @@ class Notify extends Model
     public function rules()
     {
         return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            [['email','status','token'], 'string'],
+            ['message', 'mixed']
         ];
     }
 }

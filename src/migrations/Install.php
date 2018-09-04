@@ -83,7 +83,9 @@ class Install extends Migration
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
                     'siteId' => $this->integer()->notNull(),
-                    'some_field' => $this->string(255)->notNull()->defaultValue(''),
+                    'email' => $this->string(255)->notNull(),
+                    'name' => $this->string(255)->notNull(),
+                    'password' => $this->string(255)->notNull(),
                 ]
             );
         }
@@ -99,7 +101,11 @@ class Install extends Migration
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
                     'siteId' => $this->integer()->notNull(),
-                    'some_field' => $this->string(255)->notNull()->defaultValue(''),
+                    'mood' => $this->integer(),
+                    'period' => $this->integer(),
+                    'energy' => $this->integer(),
+                    'sleep' => $this->integer(),
+                    'diet' => $this->text(),
                 ]
             );
         }
@@ -115,7 +121,10 @@ class Install extends Migration
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
                     'siteId' => $this->integer()->notNull(),
-                    'some_field' => $this->string(255)->notNull()->defaultValue(''),
+                    'email' => $this->string(255)->notNull()->defaultValue(''),
+                    'status' => $this->string(255)->notNull()->defaultValue(''),
+                    'token' => $this->string(255)->notNull()->defaultValue(''),
+                    'message' => $this->text()->notNull()->defaultValue(''),
                 ]
             );
         }

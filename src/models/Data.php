@@ -39,8 +39,8 @@ class Data extends Model
     public function rules()
     {
         return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            [['mood','period','energy','sleep'], 'number'],
+            ['diet', 'mixed']
         ];
     }
 }
